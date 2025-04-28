@@ -1,0 +1,98 @@
+/* Navbar Container */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(90deg, #2c3e50 0%, #3498db 100%);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Navigation Links Container */
+  nav div {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  /* Link Styling */
+  nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.2s ease;
+    position: relative;
+  }
+  
+  nav a:hover {
+    color: #ffd700;
+    transform: translateY(-2px);
+  }
+  
+  /* Link Hover Effect */
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #ffd700;
+    transition: width 0.3s ease;
+  }
+  
+  nav a:hover::after {
+    width: 100%;
+  }
+  
+  /* Logout Button Styling */
+  nav button {
+    background: none;
+    border: none;
+    color: #ecf0f1; /* Changed to white to match Home & Dashboard */
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  }
+  
+  nav button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffd700;
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    nav {
+      padding: 1rem;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    nav div {
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      text-align: center;
+    }
+  
+    nav a, nav button {
+      font-size: 0.9rem;
+      padding: 0.5rem;
+    }
+  }
+  
+  /* Animation for Loading */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  nav {
+    animation: fadeIn 0.5s ease-in;
+  }

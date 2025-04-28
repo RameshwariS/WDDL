@@ -1,0 +1,212 @@
+/* Base Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.2rem;
+}
+
+/* Header Styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+h1 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.logout-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Task Form Styles */
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+form input, 
+form textarea, 
+form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+form button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s;
+}
+
+form button[type="button"] {
+  background-color: #95a5a6;
+}
+
+form button:hover {
+  background-color: #2980b9;
+}
+
+/* Task List Styles */
+.task-list {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+.task-item {
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.task-item.pending {
+  border-left: 4px solid #f39c12;
+  background-color: #fff9e6;
+}
+
+.task-item.completed {
+  border-left: 4px solid #2ecc71;
+  background-color: #f0fff4;
+  opacity: 0.8;
+}
+
+.task-item.completed h3 {
+  text-decoration: line-through;
+  color: #7f8c8d;
+}
+
+.task-item h3 {
+  margin: 0 0 5px 0;
+  color: #2c3e50;
+}
+
+.task-item p {
+  margin: 5px 0;
+  color: #7f8c8d;
+}
+
+.task-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-top: 10px;
+}
+
+.task-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.task-actions button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.edit-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.toggle-btn {
+  background-color: #2ecc71;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app {
+    padding: 10px;
+  }
+  
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .logout-btn {
+    margin-top: 10px;
+  }
+}
+
+/* Add to App.css */
+.task-item.high {
+  border-left: 4px solid #e74c3c;
+}
+
+.task-item.medium {
+  border-left: 4px solid #f39c12;
+}
+
+.task-item.low {
+  border-left: 4px solid #2ecc71;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-controls select {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}

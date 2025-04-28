@@ -1,0 +1,104 @@
+/* src/styles/App.css */
+
+/* Global reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* App container to ensure content doesn't overlap with navbar */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content area */
+main {
+  flex: 1;
+  padding: 20px;
+  margin-top: 60px; /* Adjust based on navbar height */
+}
+
+/* Navbar styling (assuming Navbar.jsx has a basic structure) */
+.navbar {
+  background-color: #007bff;
+  padding: 15px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+  background-color: #0056b3;
+  border-radius: 4px;
+}
+
+.navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Responsive navbar */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .navbar a {
+    margin: 5px 0;
+  }
+
+  main {
+    margin-top: 100px; /* Adjust for taller navbar on mobile */
+  }
+}
+
+/* Ensure routed pages have consistent padding */
+.upload-container,
+.login-container,
+.register-container,
+.dashboard-container {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  main {
+    padding: 10px;
+  }
+
+  .upload-container,
+  .login-container,
+  .register-container,
+  .dashboard-container {
+    padding: 15px;
+  }
+}
