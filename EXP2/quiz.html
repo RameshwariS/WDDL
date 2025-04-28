@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Quiz - StudySync</title>
+
+    <link rel="stylesheet" href="quiz.css">
+    <script defer src="quiz.js"></script>
+</head>
+<body>
+    <header class="header-content">
+        <a href="#logo" class="logo">
+            <img src="StudySyn.svg" alt="" class="logo-icon" />
+            <span class="logo-text">StudySync</span>
+        </a>
+        <nav class="nav">
+            <a href="./studysync.html" class="nav-link">Home</a>
+            <a href="./courses.html" class="nav-link">Courses</a>
+            <a href="#pricing" class="nav-link">Pricing</a>
+            <a href="#blog" class="nav-link">Blog</a>
+            <a href="./studysync.html" class="nav-link">About</a>
+        </nav>
+        <a href="#contact" class="contact-button">
+            Contact Us
+        </a>
+        <button class="menu">
+            <img src="Hamburger.svg" alt="Menu">
+        </button>
+    </header>
+    <div class="content" id="quiz">
+        <div class="hero">
+            <h1>Python Quiz</h1>
+            <p class="info">Test your Python knowledge with this quiz!</p>
+            <div class="quiz-container">
+                <form id="quiz-form">
+                    <div class="question">
+                        <p>1. What is the output of print(2 ** 3)?</p>
+                        <input type="radio" id="q1a" name="q1" value="6">
+                        <label for="q1a">6</label><br>
+                        <input type="radio" id="q1b" name="q1" value="8">
+                        <label for="q1b">8</label><br>
+                        <input type="radio" id="q1c" name="q1" value="9">
+                        <label for="q1c">9</label><br>
+                    </div>
+                    <div class="question">
+                        <p>2. Which of the following is a mutable data type?</p>
+                        <input type="radio" id="q2a" name="q2" value="tuple">
+                        <label for="q2a">Tuple</label><br>
+                        <input type="radio" id="q2b" name="q2" value="list">
+                        <label for="q2b">List</label><br>
+                        <input type="radio" id="q2c" name="q2" value="string">
+                        <label for="q2c">String</label><br>
+                    </div>
+                    <div class="question">
+                        <p>3. What is the correct file extension for Python files?</p>
+                        <input type="radio" id="q3a" name="q3" value=".py">
+                        <label for="q3a">.py</label><br>
+                        <input type="radio" id="q3b" name="q3" value=".python">
+                        <label for="q3b">.python</label><br>
+                        <input type="radio" id="q3c" name="q3" value=".pyt">
+                        <label for="q3c">.pyt</label><br>
+                    </div>
+                    <div class="question">
+                        <p>4. Which keyword is used to create a function in Python?</p>
+                        <input type="radio" id="q4a" name="q4" value="function">
+                        <label for="q4a">function</label><br>
+                        <input type="radio" id="q4b" name="q4" value="def">
+                        <label for="q4b">def</label><br>
+                        <input type="radio" id="q4c" name="q4" value="func">
+                        <label for="q4c">func</label><br>
+                    </div>
+                    <div class="question">
+                        <p>5. How do you insert comments in Python code?</p>
+                        <input type="radio" id="q5a" name="q5" value="// This is a comment">
+                        <label for="q5a">// This is a comment</label><br>
+                        <input type="radio" id="q5b" name="q5" value="# This is a comment">
+                        <label for="q5b"># This is a comment</label><br>
+                        <input type="radio" id="q5c" name="q5" value="/* This is a comment */">
+                        <label for="q5c">/* This is a comment */</label><br>
+                    </div>
+                    <div class="question">
+                        <p>6. Which method can be used to remove any whitespace from both the beginning and the end of a string?</p>
+                        <input type="radio" id="q6a" name="q6" value="ptrim()">
+                        <label for="q6a">ptrim()</label><br>
+                        <input type="radio" id="q6b" name="q6" value="strip()">
+                        <label for="q6b">strip()</label><br>
+                        <input type="radio" id="q6c" name="q6" value="len()">
+                        <label for="q6c">len()</label><br>
+                    </div>
+                    <div class="question">
+                        <p>7. Which of the following is used to define a block of code in Python?</p>
+                        <input type="radio" id="q7a" name="q7" value="Curly braces">
+                        <label for="q7a">Curly braces</label><br>
+                        <input type="radio" id="q7b" name="q7" value="Parentheses">
+                        <label for="q7b">Parentheses</label><br>
+                        <input type="radio" id="q7c" name="q7" value="Indentation">
+                        <label for="q7c">Indentation</label><br>
+                    </div>
+                    <div class="question">
+                        <p>8. How do you create a variable with the numeric value 5?</p>
+                        <input type="radio" id="q8a" name="q8" value="x = 5">
+                        <label for="q8a">x = 5</label><br>
+                        <input type="radio" id="q8b" name="q8" value="x == 5">
+                        <label for="q8b">x == 5</label><br>
+                        <input type="radio" id="q8c" name="q8" value="x := 5">
+                        <label for="q8c">x := 5</label><br>
+                    </div>
+                    <div class="question">
+                        <p>9. Which operator is used to multiply numbers in Python?</p>
+                        <input type="radio" id="q9a" name="q9" value="%">
+                        <label for="q9a">%</label><br>
+                        <input type="radio" id="q9b" name="q9" value="*">
+                        <label for="q9b">*</label><br>
+                        <input type="radio" id="q9c" name="q9" value="x">
+                        <label for="q9c">x</label><br>
+                    </div>
+                    <div class="question">
+                        <p>10. Which collection is ordered, changeable, and allows duplicate members?</p>
+                        <input type="radio" id="q10a" name="q10" value="Dictionary">
+                        <label for="q10a">Dictionary</label><br>
+                        <input type="radio" id="q10b" name="q10" value="Set">
+                        <label for="q10b">Set</label><br>
+                        <input type="radio" id="q10c" name="q10" value="List">
+                        <label for="q10c">List</label><br>
+                    </div>
+                    <button type="submit" class="submit-button">Submit</button>
+                </form>
+                <div id="result" class="result"></div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-container">
+        <div class="left-footer">
+            <p>&copy; 2023 StudySync. All rights reserved.</p>
+        </div>
+        <div class="right-footer">
+            <ul>
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#terms">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quiz App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        button {
+            display: block;
+            width: 200px;
+            margin: 10px auto;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        #result {
+            font-size: 18px;
+            margin-top: 20px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .wrong {
+            color: red;
+        }
+
+        #quiz-container {
+            max-width: 600px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div id="quiz-container">
+    <h2 id="question">What is the capital of France?</h2>
+    <button class="answer">London</button>
+    <button class="answer">Berlin</button>
+    <button class="answer" data-correct="true">Paris</button>
+    <p id="result"></p>
+    <button id="next" style="display: none;">Next</button>
+</div>
+
+<script>
+    const questions = [
+        { question: "What is the capital of France?", answers: ["London", "Berlin", "Paris"], correct: 2 },
+        { question: "Which planet is known as the Red Planet?", answers: ["Mars", "Venus", "Jupiter"], correct: 0 },
+        { question: "What is 5 + 3?", answers: ["5", "8", "10"], correct: 1 },
+        { question: "Who wrote 'Hamlet'?", answers: ["Shakespeare", "Hemingway", "Tolkien"], correct: 0 },
+        { question: "What is the chemical symbol for gold?", answers: ["Au", "Ag", "Pb"], correct: 0 }
+    ];
+
+    let currentQuestionIndex = 0;
+    const questionElement = document.getElementById("question");
+    const buttonsContainer = document.getElementById("quiz-container");
+    const resultElement = document.getElementById("result");
+    const nextButton = document.getElementById("next");
+
+    function loadQuestion() {
+        let q = questions[currentQuestionIndex];
+        questionElement.innerText = q.question;
+        let buttons = document.querySelectorAll(".answer");
+        buttons.forEach((button, index) => {
+            button.innerText = q.answers[index];
+            button.dataset.correct = index === q.correct ? "true" : "";
+        });
+        resultElement.style.opacity = "0";
+        nextButton.style.display = "none";
+    }
+
+    document.querySelectorAll(".answer").forEach(button => {
+        button.addEventListener("click", function() {
+            let isCorrect = this.dataset.correct === "true";
+            resultElement.innerText = isCorrect ? "Correct!" : "Wrong Answer!";
+            resultElement.className = isCorrect ? "correct" : "wrong";
+            resultElement.style.opacity = "1";
+            resultElement.style.transform = "scale(1.1)";
+            setTimeout(() => resultElement.style.transform = "scale(1)", 200);
+            nextButton.style.display = "block";
+        });
+    });
+
+    nextButton.addEventListener("click", function() {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            loadQuestion();
+        } else {
+            questionElement.innerText = "Quiz Completed!";
+            buttonsContainer.innerHTML = "";
+            resultElement.innerText = "";
+        }
+    });
+
+    loadQuestion();
+</script>
+
+</body>
+</html>

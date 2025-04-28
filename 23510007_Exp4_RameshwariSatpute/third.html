@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body { font-family: Arial, sans-serif;
+             background-color: #f7f7f7;
+              padding: 30px; }
+        form { width: 300px;
+             margin: auto;
+              text-align: center; 
+              padding: 20px;
+               border: 1px solid #ccc;
+                border-radius: 10px;
+                 background-color: #fff;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        input { display: block;
+             width: 90%; padding: 10px;
+              margin: 10px auto; border:
+               1px solid #ccc; 
+               border-radius: 5px; 
+               font-size: 14px; }
+        span { color: red;
+             font-size: 12px;
+              display: block;
+               margin-bottom: 5px; }
+        button { padding: 10px 15px; 
+            width: 100%;
+             background-color: #007bff;
+              color: white; border: none;
+               border-radius: 5px; 
+               cursor: pointer;
+                font-size: 16px; }
+        button:hover { background-color: #0056b3; }
+        #successMessage { color: green; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <form id="registerForm">
+        <input id="name" placeholder="Name">
+        <span id="nameError"></span>
+        <input id="email" placeholder="Email">
+        <span id="emailError"></span>
+        <input type="password" id="password" placeholder="Password">
+        <span id="passError"></span>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password">
+        <span id="confirmPassError"></span>
+        <button type="submit">Submit</button>
+        <p id="successMessage"></p>
+    </form>
+
+    <script>
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        
+        let valid = true;
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirmPassword").value;
+
+        document.getElementById("nameError").textContent = "";
+        document.getElementById("emailError").textContent = "";
+        document.getElementById("passError").textContent = "";
+        document.getElementById("confirmPassError").textContent = "";
+        document.getElementById("successMessage").textContent = "";
+
+        if (name.length < 3) {
+            document.getElementById("nameError").textContent = "At least 3 characters required.";
+            valid = false;
+        }
+        if (!email.includes("@") || !email.includes(".")) {
+            document.getElementById("emailError").textContent = "Invalid email address.";
+            valid = false;
+        }
+        if (password.length < 6) {
+            document.getElementById("passError").textContent = "Password must be at least 6 characters.";
+            valid = false;
+        }
+        if (password !== confirmPassword) {
+            document.getElementById("confirmPassError").textContent = "Passwords do not match.";
+            valid = false;
+        }
+
+        if (valid) {
+            document.getElementById("successMessage").textContent = "Registration Successful!";
+        }
+    });
+    </script>
+
+</body>
+</html>

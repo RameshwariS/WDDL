@@ -1,0 +1,293 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  background: #e1e8f0;
+  color: #2d2d2d;
+  line-height: 1.7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+  background: linear-gradient(135deg, #ff7f50, #ff6347);
+  color: #fff;
+  padding: 1rem 2rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+header ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+header ul li {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+header ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+header ul li a:hover {
+  color: #f9f9f9;
+}
+
+#home {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: rgb(245, 231, 220);
+  color: black;
+}
+
+#home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+#home img {
+  border-radius: 50%;
+  width: 180px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#home h1 {
+  font-size: 3.5rem;
+  margin: 15px 0;
+  font-weight: 600;
+}
+
+#home p {
+  font-size: 1.4rem;
+}
+
+#about {
+  padding: 4rem 2rem;
+  background: #ffffff;
+}
+
+#about h2 {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#about p {
+  font-size: 1.2rem;
+  line-height: 1.9;
+  text-align: center;
+  color: #666;
+}
+
+#about ol {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+#about ol li {
+  font-size: 1.3rem;
+  margin: 10px 0;
+}
+
+#about h3 {
+  text-align: center;
+  font-size: 2.2rem;
+}
+
+.skills {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 3rem;
+}
+
+.skill {
+  width: 25%;
+  text-align: center;
+}
+
+.skill p {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+.progress {
+  background: #ddd;
+  height: 18px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  background: #ff7f50;
+  transition: width 0.4s ease;
+}
+
+#projects {
+  padding: 4rem 2rem;
+  background: #f9f9f9;
+}
+
+#projects h2 {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.project {
+  background: #fafafa;
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project h3 {
+  margin-top: 0;
+  font-size: 2rem;
+  color: #444;
+}
+
+.project p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.project a {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 1.2rem;
+  color: #ff7f50;
+  text-decoration: none;
+  border: 1px solid #ff7f50;
+  padding: 12px 24px;
+  border-radius: 30px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.project a:hover {
+  background: #ff7f50;
+  color: #fff;
+}
+
+#contact {
+  padding: 4rem 2rem;
+  background: #ffffff;
+}
+
+#contact h2 {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.8rem;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  background: #fff;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #ff7f50;
+}
+
+form button {
+  background: #ff7f50;
+  color: #fff;
+  border: none;
+  padding: 1rem 1.8rem;
+  font-size: 1.3rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #ff6347;
+}
+
+footer {
+  background: #333;
+  color: #f1f1f1;
+  text-align: center;
+  padding: 2.5rem;
+}
+
+footer p {
+  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+footer ul li {
+  margin: 0 20px;
+}
+
+footer ul li a {
+  color: #f1f1f1;
+  text-decoration: none;
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+  color: #ff6347;
+}
+
+@media (max-width: 768px) {
+  header ul li {
+      display: block;
+      margin: 12px 0;
+  }
+
+  .skills {
+      flex-direction: column;
+      gap: 20px;
+  }
+
+  .skill {
+      width: 100%;
+  }
+
+  .project {
+      padding: 2rem;
+  }
+}

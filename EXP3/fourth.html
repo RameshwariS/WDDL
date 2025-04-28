@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Background Color</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            transition: background-color 0.3s;
+            padding: 50px;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.2s, opacity 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
+        }
+
+        #red { background-color: red; color: white; }
+        #blue { background-color: blue; color: white; }
+        #green { background-color: green; color: white; }
+    </style>
+</head>
+<body>
+    <button id="red">Red</button>
+    <button id="blue">Blue</button>
+    <button id="green">Green</button>
+
+    <script>
+        document.querySelectorAll("button").forEach(button => {
+            button.addEventListener("click", () => document.body.style.backgroundColor = button.id);
+        });
+    </script>
+</body>
+</html>

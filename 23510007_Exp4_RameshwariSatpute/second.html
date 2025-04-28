@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Carousel</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; padding: 20px;
+            display: flex;
+        justify-content: center;    
+        align-items: center; 
+        }
+        img { width: 400px; 
+            height: 400px; 
+            object-fit: cover;
+             transition: opacity 0.5s ease-in-out; }
+        button { padding: 10px 15px; margin: 10px; border: none; cursor: pointer; font-size: 16px; border-radius: 5px; }
+        #prev { background-color: #007bff; color: white; }
+        #next { background-color: #28a745; color: white; }
+        button:hover { opacity: 0.8; }
+        #dots { margin-top: 10px; }
+        .dot { height: 12px; width: 12px; margin: 5px; background-color: gray; border-radius: 50%; display: inline-block; cursor: pointer; transition: opacity 0.3s; }
+        .active { background-color: black; opacity: 1; }
+    </style>
+</head>
+<body>
+<div class="container">
+    
+    <img id="carousel" src="image1.jpg">
+    <br>
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+    <div id="dots"></div>
+</div>
+    <script>
+        let images = ["image1.jpg", "image2.jpg", "image3.jpg"], index = 0, autoSlide;
+        function updateImage() {
+            document.getElementById("carousel").src = images[index];
+            document.querySelectorAll(".dot").forEach((dot, i) => dot.classList.toggle("active", i === index));
+        }
+        function nextImage() { index = (index + 1) % images.length; updateImage(); }
+        function prevImage() { index = (index - 1 + images.length) % images.length; updateImage(); }
+        document.getElementById("next").addEventListener("click", nextImage);
+        document.getElementById("prev").addEventListener("click", prevImage);
+        images.forEach((_, i) => {
+            let dot = document.createElement("span");
+            dot.classList.add("dot");
+            dot.addEventListener("click", () => { index = i; updateImage(); });
+            document.getElementById("dots").appendChild(dot);
+        });
+        function startAutoSlide() { autoSlide = setInterval(nextImage, 5000); }
+        function stopAutoSlide() { clearInterval(autoSlide); }
+        document.getElementById("carousel").addEventListener("mouseover", stopAutoSlide);
+        document.getElementById("carousel").addEventListener("mouseout", startAutoSlide);
+        startAutoSlide();
+        updateImage();
+    </script>
+
+</body>
+</html>

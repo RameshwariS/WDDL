@@ -1,0 +1,130 @@
+<style>
+    #dropArea {
+        width: 320px;
+        height: 160px;
+        border: 2px dashed gray;
+        text-align: center;
+        padding: 20px;
+        margin: 20px auto;
+        font-size: 16px;
+        color: #333;
+        transition: 0.3s;
+        border-radius: 10px;
+        background: #f9f9f9;
+    }
+    #dropArea.highlight {
+        background: lightgray;
+    }
+    #fileInput {
+        display: none;
+    }
+    .btn {
+        padding: 10px;
+        border: none;
+        background: #007bff;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        max-width: 200px;
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+    }
+    .btn:hover {
+        background: #0056b3;
+    }
+    img {
+        display: block;
+        margin: 10px auto;
+        max-width: 200px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding: 5px;
+        background: white;
+    }
+    #removeFile {
+        background: red;
+        display: none;
+    }
+    #removeFile:hover {
+        background: darkred;
+    }
+    #fileError {
+        color: red;
+        text-align: center;
+        margin-top: 10px;
+    }
+    #fileName {
+        text-align: center;
+        margin-top: 10px;
+        font-weight: bold;
+        color: #333;
+    }
+</style>
+
+<div id="dropArea">
+    <p>Drop files here or</p>
+    <button id="selectFile" class="btn">Select File</button>
+</div>
+<input type="file" id="fileInput" accept=".pdf,.doc,.docx,.jpg,.jpeg">
+<img id="preview" style="display:none;">
+<p id="fileName"></p>
+<button id="removeFile" class="btn">Remove File</button>
+<p id="fileError"></p>
+
+<script>
+    let dropArea = document.getElementById("dropArea");
+    let fileInput = document.getElementById("fileInput");
+    let preview = document.getElementById("preview");
+    let removeFile = document.getElementById("removeFile");
+    let fileError = document.getElementById("fileError");
+    let fileName = document.getElementById("fileName");
+
+    dropArea.ondragover = (e) => {
+        e.preventDefault();
+        dropArea.classList.add("highlight");
+    };
+    dropArea.ondragleave = () => dropArea.classList.remove("highlight");
+    dropArea.ondrop = (e) => {
+        e.preventDefault();
+        dropArea.classList.remove("highlight");
+        handleFile(e.dataTransfer.files[0]);
+    };
+
+    document.getElementById("selectFile").onclick = () => fileInput.click();
+    fileInput.onchange = () => handleFile(fileInput.files[0]);
+
+    removeFile.onclick = () => {
+        preview.style.display = "none";
+        fileName.textContent = "";
+        removeFile.style.display = "none";
+        fileError.textContent = "";
+        fileInput.value = "";
+    };
+
+    function handleFile(file) {
+        if (!file) return;
+        let ext = file.name.split(".").pop().toLowerCase();
+        if (!["pdf", "doc", "docx", "jpg", "jpeg"].includes(ext)) {
+            fileError.textContent = "Invalid file type! Only PDF, DOC, DOCX, JPG, and JPEG are allowed.";
+            return;
+        }
+        fileError.textContent = "";
+
+        if (["jpg", "jpeg"].includes(ext)) {
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                preview.src = e.target.result;
+                preview.style.display = "block";
+                fileName.textContent = "";
+            };
+            reader.readAsDataURL(file);
+        } else {
+            preview.style.display = "none";
+            fileName.textContent = `Uploaded File: ${file.name}`;
+        }
+
+        removeFile.style.display = "block";
+    }
+</script>
